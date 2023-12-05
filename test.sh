@@ -4,8 +4,8 @@ set -eux
 
 ./build.sh
 
-./build/debug/starter-test
-./build/tsan/starter-test
-./build/release/starter-benchmark
+ctest --test-dir ./build/debug
+ctest --test-dir ./build/tsan
+ctest --test-dir ./build/release
 
 ./build/release/starter

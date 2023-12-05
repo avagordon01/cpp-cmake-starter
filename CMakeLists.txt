@@ -1,6 +1,8 @@
-cmake_minimum_required(VERSION 3.14)
+cmake_minimum_required(VERSION 3.21)
 project(starter)
-enable_testing()
+include(CTest)
+
+find_package(GTest)
 
 include(FetchContent)
 FetchContent_Declare(googletest
@@ -17,9 +19,11 @@ FetchContent_MakeAvailable(
 )
 
 set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED YES)
-set(CMAKE_CXX_EXTENSIONS NO)
+set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
+set(CMAKE_CXX_EXTENSIONS FALSE)
 
+set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
+set(CMAKE_EXPORT_COMPILE_COMMANDS TRUE)
 set(CMAKE_CXX_COMPILER_LAUNCHER ccache)
 
 set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -fsanitize=address,undefined")
@@ -30,12 +34,13 @@ set(CMAKE_CXX_CLANG_TIDY "clang-tidy;-checks=-*,bugprone-*,cert-dcl21-cpp,cert-d
 add_compile_options(-Wall -Wextra -Wpedantic -Werror)
 
 add_executable(starter-benchmark src/starter.bench.cc)
-target_link_libraries(starter-benchmark benchmark::benchmark)
-install(TARGETS starter-benchmark)
+target_link_libraries(starter-benchmark PRIVATE benchmark::benchmark)
 
 add_executable(starter-test src/starter.test.cc)
-target_link_libraries(starter-test GTest::gtest_main)
-install(TARGETS starter-test)
+target_link_libraries(starter-test PRIVATE GTest::gtest_main)
+gtest_discover_tests(starter-test)
 
 add_executable(starter src/starter.cc)
 install(TARGETS starter)
+
+install(RUNTIME_DEPENDENCY_SET starter)
