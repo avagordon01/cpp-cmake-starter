@@ -22,7 +22,7 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
 set(CMAKE_CXX_EXTENSIONS FALSE)
 
-set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
+set(CMAKE_INSTALL_RPATH $ORIGIN/../lib)
 set(CMAKE_EXPORT_COMPILE_COMMANDS TRUE)
 set(CMAKE_CXX_COMPILER_LAUNCHER ccache)
 
@@ -41,6 +41,7 @@ target_link_libraries(starter-test PRIVATE GTest::gtest_main)
 gtest_discover_tests(starter-test)
 
 add_executable(starter src/starter.cc)
-install(TARGETS starter)
 
-install(RUNTIME_DEPENDENCY_SET starter)
+install(TARGETS starter)
+install(IMPORTED_RUNTIME_ARTIFACTS starter RUNTIME_DEPENDENCY_SET s)
+install(RUNTIME_DEPENDENCY_SET s)
