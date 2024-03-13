@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
 
-TEST(startertest, BasicAssertions) {
+TEST(startertest, basicAssertions) {
     EXPECT_EQ(7 * 6, 42);
 }
