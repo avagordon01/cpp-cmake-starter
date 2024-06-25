@@ -1,0 +1,18 @@
+---
+BasedOnStyle: Google
+AlignAfterOpenBracket: BlockIndent
+AlignArrayOfStructures: Right
+BitFieldColonSpacing: After
+BreakConstructorInitializers: AfterColon
+BreakInheritanceList: AfterColon
+ColumnLimit: 120
+ContinuationIndentWidth: 4
+IndentAccessModifier: false
+IndentWidth: 4
+InsertBraces: true
+SpaceBeforeCtorInitializerColon: false
+SpaceBeforeInheritanceColon: false
+SpaceBeforeRangeBasedForLoopColon: false
+SpacesInContainerLiterals: false
+SpacesInLineCommentPrefix:
+  Minimum: 0
