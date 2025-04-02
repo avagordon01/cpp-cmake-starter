@@ -1,9 +1,28 @@
 cmake_minimum_required(VERSION 3.21)
 project(starter)
 
-find_package(GTest)
-find_package(benchmark)
 include(CTest)
+include(GoogleTest)
+include(FetchContent)
+FetchContent_Declare(
+    googletest
+    GIT_REPOSITORY https://github.com/google/googletest
+    GIT_TAG v1.16.0
+    EXCLUDE_FROM_ALL
+    SYSTEM
+    OVERRIDE_FIND_PACKAGE
+)
+FetchContent_MakeAvailable(googletest)
+set(BENCHMARK_ENABLE_TESTING OFF)
+FetchContent_Declare(
+    benchmark
+    GIT_REPOSITORY https://github.com/google/benchmark
+    GIT_TAG v1.9.2
+    EXCLUDE_FROM_ALL
+    SYSTEM
+    OVERRIDE_FIND_PACKAGE
+)
+FetchContent_MakeAvailable(benchmark)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
