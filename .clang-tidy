@@ -1,0 +1,13 @@
+---
+# clang-tidy disabled by default
+# too many false positives for e.g. const correctness
+# too slow to be enabled by default
+Checks: '
+    abseil-*,
+    bugprone-*,
+    cppcoreguidelines-*,
+    misc-*,
+    modernize-*,
+    performance-*,
+    -modernize-use-trailing-return-type,
+'
