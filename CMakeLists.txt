@@ -37,6 +37,7 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -fsanitize=address,undefined
 set(CMAKE_CXX_FLAGS_TSAN "${CMAKE_CXX_FLAGS_TSAN} -fsanitize=thread")
 
 add_compile_options(-Wall -Wextra -Wpedantic -Werror)
+add_compile_options(-Wno-error=cpp)
 
 add_executable(starter-benchmark src/starter.bench.cc)
 target_link_libraries(starter-benchmark PRIVATE benchmark::benchmark)

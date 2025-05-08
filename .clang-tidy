@@ -1,8 +1,6 @@
 ---
-# clang-tidy disabled by default
-# too many false positives for e.g. const correctness
-# too slow to be enabled by default
 Checks: '
+    clang-analyzer-*,
     abseil-*,
     bugprone-*,
     cppcoreguidelines-*,
