@@ -53,5 +53,3 @@ add_executable(starter src/starter.cc)
 add_test(starter starter)
 
 install(TARGETS starter)
-install(IMPORTED_RUNTIME_ARTIFACTS starter RUNTIME_DEPENDENCY_SET s)
-install(RUNTIME_DEPENDENCY_SET s)
