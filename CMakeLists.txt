@@ -2,8 +2,9 @@ cmake_minimum_required(VERSION 3.21)
 project(starter)
 
 include(CTest)
-include(GoogleTest)
+include(CPack)
 include(FetchContent)
+include(GoogleTest)
 FetchContent_Declare(
     googletest
     GIT_REPOSITORY https://github.com/google/googletest
